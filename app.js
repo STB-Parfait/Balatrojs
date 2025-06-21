@@ -1,14 +1,11 @@
 import Hand from './controllers/Hand.js';
 import Checker from './controllers/Checker.js';
 
-//pneumoultramicroscópicosilicovulcanocorniótico;
-
 let check = new Checker();
 let hand = new Hand();
 
 hand.newHand();
 
-let teste = [];
-teste = check.checkAll(hand);
-
-console.log(teste);
+for(let x = 0; x < 5; x++){
+    console.log(hand.cartas[x].asString);
+}
