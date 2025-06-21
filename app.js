@@ -6,6 +6,6 @@ let hand = new Hand();
 
 hand.newHand();
 
-for(let x = 0; x < 5; x++){
-    console.log(hand.cartas[x].asString);
-}
+hand.rank = check.setRank(hand);
+
+console.log(hand.rank);

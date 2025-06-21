@@ -128,24 +128,37 @@ class Checker{
         }
         return false;
     }
-    checkAll(hand){
-        let multiCheck = new Array(11);
+    setRank(hand){
+        let multiCheck = new Array(10);
 
         let frequencyMap = this._getFrequency(hand);
         let nipeMap = this._getNipes(hand);
 
-        multiCheck[0] = this.checkPair(frequencyMap);
-        multiCheck[1] = this.checkTwoPair(frequencyMap);
-        multiCheck[2] = this.checkToak(frequencyMap);
-        multiCheck[3] = this.checkFoak(frequencyMap);
-        multiCheck[4] = this.checkFlush(nipeMap);
-        multiCheck[5] = this.checkStraight(frequencyMap);
+        multiCheck[1] = this.checkPair(frequencyMap);
+        multiCheck[2] = this.checkTwoPair(frequencyMap);
+        multiCheck[3] = this.checkToak(frequencyMap);
+        multiCheck[4] = this.checkStraight(frequencyMap);
+        multiCheck[5] = this.checkFlush(nipeMap);
         multiCheck[6] = this.checkFullHouse(frequencyMap);
-        multiCheck[7] = this.checkStraightFlush(frequencyMap, nipeMap);
-        multiCheck[8] = this.checkHighCard(frequencyMap,nipeMap);
-        multiCheck[9] = this.checkRoyal(frequencyMap, nipeMap);
+        multiCheck[7] = this.checkFoak(frequencyMap);
+        multiCheck[8] = this.checkStraightFlush(frequencyMap,nipeMap);
+        multiCheck[9] = this.checkRoyal(frequencyMap,nipeMap);
+        multiCheck[0] = this.checkHighCard(frequencyMap,nipeMap);
 
-        return multiCheck;
+        let higherRank = 0;
+
+        for(let x = 0; x < 10; x++){
+            switch(multiCheck[x]){
+                case true:
+                    higherRank = x;
+                    break;
+
+                case false:
+                    break;    
+            }
+        }
+
+        return higherRank;
     }
 }
 
