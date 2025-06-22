@@ -8,4 +8,4 @@ hand.newHand();
 
 hand.rank = check.setRank(hand);
 
-console.log(hand.rank);
+console.log(hand.cartas);

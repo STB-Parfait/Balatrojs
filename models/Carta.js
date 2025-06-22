@@ -7,6 +7,7 @@ class Card{
         this.value = Math.floor(Math.random() * 13);
         this.nipe = Math.floor(Math.random() * 4);
         this.hasFace = this.value > 9;
+        this.isSelected = false;
     }
     get asString(){
         const valorString = Card.#value[this.value];
