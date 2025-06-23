@@ -10,9 +10,22 @@ class MainView{
     showHand(){
         console.log('{');
         for(let x = 0; x < 5; x++){
-            console.log('   ' + this.hand.cartas[x].asString);
+            console.log('   ' +`[${x+1}] - `+ this.hand.cartas[x].asString);
         }
         console.log('}  [current best hand: ' + this.hand.rankString + ']\n');
+    }
+    showSelected(){
+        let selectedStrings = [];
+        for(let x = 0; x < 5; x++){
+            if(this.hand.cartas[x].isSelected===true){
+                selectedStrings.push(this.hand.cartas[x].asString);
+            }
+        }
+        if(selectedStrings.length===0){
+            console.log('[nenhuma carta selecionada]');
+        } else{
+            console.log(selectedStrings);
+        }
     }
 }
 

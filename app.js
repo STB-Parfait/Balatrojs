@@ -11,3 +11,8 @@ hand.rank = check.setRank(hand);
 
 let view = new MainView(hand);
 view.showHand();
+
+hand.selectCards();
+hand.discard();
+
+view.showHand();

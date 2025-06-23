@@ -1,4 +1,5 @@
 import Card from '../models/Carta.js';
+import readline from 'readline-sync';
 class Hand{
 
     static #rank = {
@@ -22,9 +23,35 @@ class Hand{
             this.cartas[x] = new Card();
         }
     }
-    discard(discardArray){
-        for(let x = 0; x < discardArray.length; x++){
-            cartas[discardArray[x]] = new Card;
+    discard(){
+        for(let i = 0; i < this.cartas.length; i++){
+            if(this.cartas[i].isSelected){
+                this.cartas[i] = new Card();
+            }
+        }
+    }
+    selectCards(){
+
+        const maxIndex = this.cartas.length - 1;
+
+        let playerInput = '';
+
+        playerInput = readline.question('input the cards to be discarted, then press ENTER');
+
+        if(playerInput!==''){
+
+            let inputTranslation = playerInput
+                .split(' ')
+                .map(str => parseInt(str,10)-1)
+                .filter(index =>
+                    !isNaN(index) &&
+                    index >= 0 &&
+                    index <= maxIndex
+                );
+            
+            for(const index of inputTranslation){
+                this.cartas[index].isSelected = true;
+            }
         }
     }
     get rankString(){
