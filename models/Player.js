@@ -24,3 +24,5 @@ class Player {
         return `${rankString}`;
     }
 }
+
+export default Player;

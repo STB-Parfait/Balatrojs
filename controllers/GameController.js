@@ -1,8 +1,10 @@
 import Player from '../models/Player.js';
 import Carta from '../models/Carta.js';
+import Checker from './Checker.js';
 class GameController{
     constructor(){
         this.player = new Player();
+        this.checker = new Checker();
     }
     newHand(){
         this.player.hand = [];
@@ -36,5 +38,8 @@ class GameController{
                 this.player.hand[index].isSelected = true;
             }
         }
+    }
+    setRank(){
+        this.player.handRank = checker.checkAll(this.player.hand);
     }
 }

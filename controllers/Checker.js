@@ -128,7 +128,7 @@ class Checker{
         }
         return false;
     }
-    setRank(hand){
+    checkAll(hand){
         let multiCheck = new Array(10);
 
         let frequencyMap = this._getFrequency(hand);
