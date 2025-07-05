@@ -40,6 +40,8 @@ class GameController{
         }
     }
     setRank(){
-        this.player.handRank = checker.checkAll(this.player.hand);
+        this.player.handRank = this.checker.checkAll(this.player.hand);
     }
 }
+
+export default GameController;

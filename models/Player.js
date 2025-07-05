@@ -20,7 +20,7 @@ class Player {
     }
 
     get rankString(){
-        const rankString = Hand.#rank[this.handRank];
+        const rankString = Player.#rank[this.handRank];
         return `${rankString}`;
     }
 }

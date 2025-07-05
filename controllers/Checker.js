@@ -1,9 +1,9 @@
-import Hand from './Hand.js';
+import GameController from './GameController.js';
 import Card from '../models/Carta.js';
 class Checker{
     _getFrequency(hand){
         let frequencyMap = new Map();
-        for(const carta of hand.cartas){
+        for(const carta of hand){
             let valorCarta = carta.value;
             let currentCount = frequencyMap.get(carta.value) || 0;
             frequencyMap.set(valorCarta,currentCount + 1);
@@ -12,7 +12,7 @@ class Checker{
     }
     _getNipes(hand){
         let frequencyMap = new Map();
-        for(const carta of hand.cartas){
+        for(const carta of hand){
             let nipeCarta = carta.nipe;
             let currentCount = frequencyMap.get(carta.nipe) || 0;
             frequencyMap.set(nipeCarta,currentCount + 1);
